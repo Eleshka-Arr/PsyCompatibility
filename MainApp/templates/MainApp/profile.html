@@ -1,0 +1,41 @@
+{% extends "MainApp/base.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="registration">
+    <h2>Личный кабинет пользователя</h2>
+    <br>
+    <h3>Фамилия: {{user.last_name}}</h3>
+    <h3>Имя: {{user.first_name}}</h3>
+    <h3>Ник: {{user.username}}</h3>
+    <h3>Электронная почта {{user.email}}</h3>
+    <br>
+    <br>
+    <h3>Результаты</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Диагноз</th>
+            <th scope="col">Тест</th>
+            <th scope="col">Баллы</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.pattern.description }}</td>
+            <td>{{ result.quiz.title }}</td>
+            <td>
+                {% if result.score %}
+                {{ result.score }}
+                {% else %}
+                ...
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

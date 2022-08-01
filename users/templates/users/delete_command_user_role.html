@@ -1,0 +1,17 @@
+{% extends "mainApp/base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="container-fluid">
+        <h3>Вы действительно хотите удалить пользователя из команды?</h3>
+        <form action="{% url 'delete_command_user_role' command_id=command.id user_role_id=user_role.id %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger">Да</button>
+        </form>
+        <a href="{% url 'view_command' command_id=command.id %}">
+            <button class="btn btn-secondary">Нет</button>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "mainApp/base.html" %}
+
+
+{% block content %}
+  {% for ous in object_list %}
+  <p>{{Ous.post|safe|linebreaks}}</p>
+  {{Ous.img_url}}
+  <img src="{{Ous.img_url}}">
+  {% endfor %}
+{% endblock %}

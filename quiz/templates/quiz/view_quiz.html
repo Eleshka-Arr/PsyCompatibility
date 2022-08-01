@@ -1,0 +1,27 @@
+{% extends 'mainApp/base.html' %}
+{% block title %}Тесты{% endblock %}
+{% block content %}
+<div class="container-fluid padding">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+        <h3>{{ quiz.title }}</h3>
+        <form method="POST" action="{% url 'submit_quiz' quiz_id=quiz.id %}">
+            {% csrf_token %}
+            {% for question in questions %}
+            <div>
+                <h5>{{ question.title }}</h5>
+                {% for variant in question.variants.all %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{ question.id }}" id="variant-{{ variant.id }}"
+                           value="{{ variant.id }}" required>
+                    <label class="form-check-label" for="variant-{{ variant.id }}">
+                        <p>{{ variant.content }}</p>
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Получить результат</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

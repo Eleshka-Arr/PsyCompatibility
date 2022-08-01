@@ -1,0 +1,36 @@
+{% extends 'mainApp/base.html' %}
+{% block title %}Тесты{% endblock %}
+{% block content %}
+<br>
+<div class="container-fluid padding">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+        <div style="display:flex">
+            <h3>{{ command.title }}</h3>
+            <div style="flex-grow:1"></div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Добавить роль
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% for role in roles %}
+                    <a class="dropdown-item"
+                       href="{% url 'view_command_role' command_id=command.id role_id=role.id %}">{{ role.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <ul class="list-group">
+            {% for user_role in command.user_roles.all %}
+            <li class="list-group-item">
+                {{ user_role.user.username }}, {{ user_role.role.name }}
+                <a href="{% url 'delete_command_user_role' command_id=command.id user_role_id=user_role.id%}">
+                    <button class="btn btn-info btn-next my_b" type="button">Удалить</button>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<br>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "mainApp/base.html" %}
+{% block title %}Новость{% endblock %}
+{% block content %}
+{% load static %}
+<div class="container-fluid">
+  <div class="row text alert">
+    <div class="col-12">
+      <h1 class="display-4">{{articles.title}}</h1>
+      <hr>
+      <p>{{articles.post|safe|linebreaks}}</p>
+      <h6 class="text-info">Опубликовано: {{articles.date|date:"Y-m-d в H:m:s"}}</h6>
+      <h6 class="text-info">Важно для: {{articles.gender}}</h6>
+      <h6 class="text-info">Написано администратором: {{articles.adminchecked}}</h6>
+      <hr>
+
+    </div>
+
+{% endblock %}

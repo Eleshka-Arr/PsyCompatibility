@@ -1,0 +1,17 @@
+{% extends "mainApp/base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="container-fluid">
+        <h3>Вы действительно хотите удалить команду?</h3>
+        <form action="{% url 'delete_command' command_id=command.id %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger">Да</button>
+        </form>
+        <a href="{% url 'view_commands' %}">
+            <button class="btn btn-secondary">Нет</button>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

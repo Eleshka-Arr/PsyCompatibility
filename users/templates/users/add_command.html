@@ -1,0 +1,18 @@
+{% extends "mainApp/base.html" %}
+
+{% block content %}
+<div class="container">
+  <form class="" action="{% url 'create_command' %}" method="POST">
+    {% csrf_token %}
+    <div class="container-fluid">
+      <h1>Новая команда</h1>
+      <h3 id="labels">Название команды</h3>
+      <input class="form-control" placeholder="Введите название команды" type="text" name="title" required>
+      <hr>
+      <button class="btn btn-info" id="reg_button" type="submit" title="Добавить">Добавить команду</button>
+      <hr>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

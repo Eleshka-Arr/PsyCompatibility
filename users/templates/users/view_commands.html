@@ -1,0 +1,28 @@
+{% extends 'mainApp/base.html' %}
+{% block title %}Тесты{% endblock %}
+{% block content %}
+<div class="container-fluid padding">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+        <h2>Подбор команд</h2>
+        <div class="list-group">
+            {% for command in commands %}
+            <div style="display:flex">
+                <a href="{% url 'view_command' command_id=command.id %}" class="list-group-item list-group-item-action"
+                   aria-current="true">
+                    {{ command.title }}
+                    <div style="flex-grow:1"></div>
+                    <a href="{% url 'delete_command' command_id=command.id %}">
+                        <button class="btn btn-info btn-next my_b" type="button">Удалить</button>
+                    </a>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <hr>
+        <a href="{% url 'create_command' %}">
+            <button class="btn btn-info btn-next my_b" type="button">Добавить команду</button>
+        </a>
+    </div>
+</div>
+<br>
+{% endblock %}

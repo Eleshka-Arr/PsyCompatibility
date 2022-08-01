@@ -1,0 +1,81 @@
+{% extends "MainApp/base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="carousel slide " data-ride="carousel" id="slides">
+  <ul class="carousel-indicators">
+    <li data-target="#slides" data-slide-to="0" class="active"></li>
+    <li data-target="#slides" data-slide-to="1" ></li>
+    <li data-target="#slides" data-slide-to="2" ></li>
+    <li data-target="#slides" data-slide-to="3" ></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'mainApp/image/wal1.jpg' %} ">
+      <div class="carousel-caption">
+        <h1 class="display-2">Psy Compatibility</h1>
+        <h3 class="h3txt">Построй совместимую команду!</h3>
+      </div>
+    </div>
+  <div class="carousel-item">
+      <img src="{% static 'mainApp/image/wal2.jpg' %} ">
+      <div class="carousel-caption">
+        <h1 class="display-2">Psy Compatibility</h1>
+          <h3 class="h3txt">Распредели команды по темпераментам!</h3>
+      </div>
+  </div>
+  <div class="carousel-item">
+      <img src="{% static 'mainApp/image/wal3.jpg' %} ">
+      <div class="carousel-caption">
+        <h1 class="display-2">Psy Compatibility</h1>
+          <h3 class="h3txt">Поставь подходящего кандидата на роль в команде!</h3>
+      </div>
+  </div>
+  <div class="carousel-item">
+      <img src="{% static 'mainApp/image/wal4.jpg' %} ">
+      <div class="carousel-caption">
+        <h1 class="display-2">Psy Compatibility</h1>
+          <h3 class="h3txt">Определи лидерские качества!</h3>
+      </div>
+  </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container padding">
+    <div class="row padding">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'mainApp/image/st1.jpg' %}" alt="" class="card-img-top">
+          <div class="card-body">
+            <h4 class="card-title"></h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <a href="#" class="btn btn-warning">Посмотреть</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'mainApp/image/st2.jpg' %}" alt="" class="card-img-top">
+          <div class="card-body">
+            <h4 class="card-title">Это стоит попробовать</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <a href="#" class="btn btn-warning">Посмотреть</a>
+          </div>
+        </div>
+      </div><div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'mainApp/image/st3.jpg' %}" alt="" class="card-img-top">
+          <div class="card-body">
+            <h4 class="card-title"></h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <a href="#" class="btn btn-warning">Посмотреть</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

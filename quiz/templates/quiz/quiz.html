@@ -1,0 +1,22 @@
+{% extends 'mainApp/base.html' %}
+{% block title %}Тесты{% endblock %}
+{% block content %}
+<div class="container-fluid padding">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+        <h1>Тесты</h1>
+        <div class="card">
+            {% for quiz in quizes %}
+            <div>
+                <h3 class="my_h">{{ quiz.title }}</h3>
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                    <a href="{% url 'view_quiz' quiz_id=quiz.id %}">
+                        <button class="btn btn-outline-success btn-next my_b" type="button">Пройти тест</button>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<br>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "MainApp/base.html" %}
+
+{% block content %}
+<div>
+  <form class="" action="/registrationpage/" method="POST">{% csrf_token %}
+    {{ form.as_p }}
+    <div class="container-fluid">
+      <h1>Регистрация</h1>
+      <h3 id="labels">Введите логин</h3>
+      <input type="login" name="login" id="reg_login" value="Логин" onblur="if(this.value=='') this.value='Логин';" onfocus="if(this.value=='Логин') this.value='';">
+      <h3 id="labels">Введите фамилию</h3>
+      <input type="last_name" name="last_name" id="reg_last_name" value="Фамилия" onblur="if(this.value=='') this.value='Фамилия';" onfocus="if(this.value=='Фамилия') this.value='';">
+      <h3 id="labels">Введите имя</h3>
+      <input type="first_name" name="first_name" id="reg_first_name" value="Имя" onblur="if(this.value=='') this.value='Имя';" onfocus="if(this.value=='Имя') this.value='';">
+
+      <h3 id="labels">Введите пароль</h3>
+      <input type="password" name="password" id="reg_password" value="******" onblur="if(this.value=='') this.value='******';" onfocus="if(this.value=='******') this.value='';">
+      <h3 id="labels">Введите адрес электронной почты</h3>
+      <input type="email" name="email" id="reg_field" value="example@example.com" onblur="if(this.value=='') this.value='example@example.com';" onfocus="if(this.value=='example@example.com') this.value='';">
+      <button id="reg_button" type="submit" title="Зарегистрироваться">Зарегистрироваться</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'mainApp/base.html' %}
+{% block title %}Тесты{% endblock %}
+{% block content %}
+<div class="container-fluid padding">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+        <h3>Добавление пользователя на роль {{ role.name }}</h3>
+        <h5>На данную роль подходят пользователи с результатами: </h5>
+        <ol>
+            {% for pattern in role.patterns.all %}
+            <li>{{ pattern.description }}</li>
+            {% endfor %}
+        </ol>
+        <form method="post" action="{% url 'create_command_role' command_id=command.id role_id=role.id %}">
+            {% csrf_token %}
+            {% regroup results by user as user_results %}
+            {% for user in user_results %}
+            <ul>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="user-{{ user.grouper.id }}"
+                           value="{{ user.grouper.id }}"
+                           name="user-{{ user.grouper.id }}">
+                    <label class="form-check-label" for="user-{{ user.grouper.id }}">{{ user.grouper.username }}</label>
+                </div>
+                <ul>
+                    {% for result in user.list %}
+                    <li>{{ result.pattern.description }}</li>
+                    {% endfor %}
+                </ul>
+            </ul>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

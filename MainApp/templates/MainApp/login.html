@@ -1,0 +1,25 @@
+
+{% extends "MainApp/base.html" %}
+{% block content %}
+<form method="post" action="/login/">
+     {% csrf_token %}
+     <div class="container-fluid">
+       <div class="row text-center alert">
+         <div class="col-12">
+        <label for="loginField">Логин   </label>
+        <input id="loginField" type="text" name="username" required>
+        <br>
+        <label for="passwordField">Пароль</label>
+        <input id="passwordField" type="password" name="password" required>
+        <br>
+        <input type="submit" value="Войти">
+    </div>
+    </div>
+    </div>
+</form>
+{% if error %}
+{{error}}
+{% endif %}
+{% endblock %}
+</body>
+</html>

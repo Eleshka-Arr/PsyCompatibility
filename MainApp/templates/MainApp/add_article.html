@@ -1,0 +1,28 @@
+{% extends "mainApp/base.html" %}
+
+{% block content %}
+<div class="container">
+  <form class="" action="/addarticle/" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="container-fluid">
+      <h1>Новая новость</h1>
+      <h3 id="labels">Заголовок</h3>
+      <input type="textlab" name="title">
+      <hr>
+      <h3 id="labels">Текст новости</h3>
+      <textarea name="text" rows="20" cols="100"></textarea>
+      <hr>
+      <p><input name="gender" type="radio" value="Мужчины"> Мужчины</p>
+      <p><input name="gender" type="radio" value="Женщины"> Женщины</p>
+      <p><input name="gender" type="radio" value="Общий"> Общий</p>
+      <hr>
+      <input type="hidden" name="adminchecked" value="0">
+      <p><input name="adminchecked" type="checkbox" value=True > Написано администратором</p>
+      <button id="reg_button" type="submit" title="Добавить">Добавить</button>
+      <hr>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

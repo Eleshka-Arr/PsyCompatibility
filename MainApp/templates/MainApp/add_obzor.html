@@ -1,0 +1,23 @@
+{% extends "mainApp/base.html" %}
+
+{% block content %}
+<div class="container">
+  <form class="" action="/aobzor/" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="container-fluid">
+      <h1>Новый обзор</h1>
+      <h3 id="labels">Заголовок</h3>
+      <input type="text" name="title" >
+      <h3 id="labels">Текст обзора</h3>
+      <textarea name="text" rows="20" cols="100"></textarea>
+      <p><input name="age_limit" type="radio" value="Взрослый"> Взрослый</p>
+      <p><input name="age_limit" type="radio" value="Детский"> Детский</p>
+        <p><input name="checked" type="checkbox" value=True>Проверено</p>
+
+      <button id="reg_button" type="submit" title="Добавить">Добавить</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
